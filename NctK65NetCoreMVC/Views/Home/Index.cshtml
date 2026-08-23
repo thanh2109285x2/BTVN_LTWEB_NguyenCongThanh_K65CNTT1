@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}
+
+<main class="container">
+    <section class="banner-slider">
+
+        <button class="prev-btn" onclick="moveSlide(-1)">&lt;</button>
+
+        <div class="slides">
+            <div class="slide">
+                <div class="banner-content">
+                    <div class="azure-header">
+                        <h2>Microsoft Azure</h2>
+                        <div class="icons">
+                            <img src="/images/icon1.png" alt="icon1">
+                            <img src="/images/icon2.png" alt="icon2">
+                            <img src="/images/icon3.png" alt="icon3">
+                            <img src="/images/icon4.png" alt="icon4">
+                        </div>
+                    </div>
+                    <p>Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps. <a href="#" class="btn-learn">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="banner-content">
+                    <p>Slide 2</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="banner-content">
+                    <p>Slide 3</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="next-btn" onclick="moveSlide(1)">&gt;</button>
+
+        <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+
+    </section>
+
+	<section class="product-section">
+        <h2 class="section-title">Danh sách sản phẩm</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="~/images/product1.png" alt="Product 1">
+                </div>
+                <h3>Product Name 1</h3>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="~/images/product2.png" alt="Product 2">
+                </div>
+                <h3>Product Name 2</h3>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="~/images/product3.png" alt="Product 3">
+                </div>
+                <h3>Product Name 3</h3>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="~/images/product4.png" alt="Product 4">
+                </div>
+                <h3>Product Name 4</h3>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Product management page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/product.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/product.js" asp-append-version="true"></script>
+}
+
+<main class="container">
+    <h2 class="page-title">Quản lý sản phẩm</h2>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Created At</th>
+                <th>Image</th>
+                <th class="text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Product 1</td>
+                <td>500,000 đ</td>
+                <td>25-12-2020</td>
+                <td><img src="~/images/product1.png" alt="Product 1" class="tbl-thumb"></td>
+                <td class="text-right"><a href="#" class="btn-view">View</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Product 2</td>
+                <td>700,000 đ</td>
+                <td>25-12-2020</td>
+                <td><img src="~/images/product2.png" alt="Product 2" class="tbl-thumb"></td>
+                <td class="text-right"><a href="#" class="btn-view">View</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Product 3</td>
+                <td>550,000 đ</td>
+                <td>25-12-2020</td>
+                <td><img src="~/images/product3.png" alt="Product 3" class="tbl-thumb"></td>
+                <td class="text-right"><a href="#" class="btn-view">View</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Product 4</td>
+                <td>550,000 đ</td>
+                <td>25-12-2020</td>
+                <td><img src="~/images/product4.png" alt="Product 4" class="tbl-thumb"></td>
+                <td class="text-right"><a href="#" class="btn-view">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
