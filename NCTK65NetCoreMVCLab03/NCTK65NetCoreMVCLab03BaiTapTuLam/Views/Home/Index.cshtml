@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NCTK65NetCoreMVCLab03BaiTapTuLam.Models.Product>
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row mt-3">
+    <div class="col-md-3">
+        <partial name="_Category" />
+    </div>
+
+    <div class="col-md-9">
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white fw-bold">
+                Sản phẩm mới nhất (Load từ view action Index của home)
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-center h-100">
+                                <img src="@item.Image" class="card-img-top p-2" alt="@item.Name" style="max-height: 160px; object-fit: contain;">
+                                <div class="card-body d-flex align-items-center justify-content-center">
+                                    <h6 class="card-title fs-6 m-0">@item.Name</h6>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("HotProduct")
+    </div>
+</div>

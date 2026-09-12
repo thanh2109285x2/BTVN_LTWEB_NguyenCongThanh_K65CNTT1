@@ -1,0 +1,56 @@
+﻿@model IEnumerable<NCTK65NetCoreMVCLab03.Models.Book>
+@using NCTK65NetCoreMVCLab03.Models
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+@section Styles {
+	<link rel="stylesheet" href="~/css/ProductIndex.css" asp-append-version="true" />
+}
+
+<h2>Deanh sach cac cuon sach</h2>
+<form action="" method="Post" class="form-inline">
+	<div class="form-group">
+		<select class="form-select" name="AuthorId" asp-items="@ViewBag.authors">
+			<option value="">Chọn tác giả</option>
+		</select>
+		<select name="GenreId" class="form-select" asp-items="@ViewBag.genres">
+			<option value="">Chọn Thể loại</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+	<a asp-action="Create" class="btn btn-danger">Thêm mới</a>
+</form>
+<hr>
+<table class="table table-bordered">
+	<thread>
+		<tr>
+			<th>Id</th>
+			<th>Tiêu đề</th>
+			<th>Tác giả</th>
+			<th>Thể loại</th>
+			<th>Giá</th>
+			<th>Hình ảnh</th>
+			<th></th>
+		</tr>
+	</thread>
+	<tbody>
+		@foreach (Book book in Model)
+		{
+			<tr>
+				<td>@book.Id</td>
+				<td>@book.Title</td>
+				<td>@book.AuthorId</td>
+				<td>@book.GenreId</td>
+				<td>@book.Price</td>
+				<td>
+					<img src="@book.Image" alt="@book.Title" width="40" />
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-primary">Sửa</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
