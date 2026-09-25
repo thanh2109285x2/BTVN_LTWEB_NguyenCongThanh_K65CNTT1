@@ -1,0 +1,49 @@
+@model NctK65Lesson6Models.Models.NctMember
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>NctMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NctEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NctMemberId" />
+            <div class="form-group">
+                <label asp-for="NctMemberName" class="control-label"></label>
+                <input asp-for="NctMemberName" class="form-control" />
+                <span asp-validation-for="NctMemberName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NctMemberPassword" class="control-label"></label>
+                <input asp-for="NctMemberPassword" class="form-control" />
+                <span asp-validation-for="NctMemberPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NctMemberEmail" class="control-label"></label>
+                <input asp-for="NctMemberEmail" class="form-control" />
+                <span asp-validation-for="NctMemberEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NctMemberFullName" class="control-label"></label>
+                <input asp-for="NctMemberFullName" class="form-control" />
+                <span asp-validation-for="NctMemberFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

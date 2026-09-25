@@ -1,0 +1,53 @@
+@model IEnumerable<NctK65Lesson6Models.Models.NctMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="NctCreate">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NctMemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctMemberPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctMemberEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctMemberFullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NctMemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctMemberPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctMemberEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctMemberFullName)
+            </td>
+            <td>
+                <a asp-action="NctEdit" asp-route-id="@item.NctMemberId">Sua</a> |
+                <a asp-action="NctGetDetails" asp-route-id="@item.NctMemberId">ChiTiet</a> |
+                <a asp-action="NctDelete" asp-route-id="@item.NctMemberId">Xoa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
