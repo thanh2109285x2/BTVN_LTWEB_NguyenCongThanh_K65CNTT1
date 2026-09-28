@@ -1,0 +1,54 @@
+@model NctLesson07AnnotationDemo.Models.NctMember
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>NctMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NctName" class="control-label"></label>
+                <input asp-for="NctName" class="form-control" />
+                <span asp-validation-for="NctName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctPassword" class="control-label"></label>
+                <input asp-for="NctPassword" class="form-control" />
+                <span asp-validation-for="NctPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctConfirmPassword" class="control-label"></label>
+                <input asp-for="NctConfirmPassword" class="form-control" />
+                <span asp-validation-for="NctConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctEmail" class="control-label"></label>
+                <input asp-for="NctEmail" class="form-control" />
+                <span asp-validation-for="NctEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctPhone" class="control-label"></label>
+                <input asp-for="NctPhone" class="form-control" />
+                <span asp-validation-for="NctPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

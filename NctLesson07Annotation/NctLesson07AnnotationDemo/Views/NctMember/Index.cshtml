@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NctLesson07AnnotationDemo.Models.NctMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NctName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctPhone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NctName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NctEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NctPhone)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
