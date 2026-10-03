@@ -1,0 +1,58 @@
+@model NCTK65NetCoreMVCLab03BaiTapTuLam.Models.NctProduct
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>NctProduct</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NctName" class="control-label"></label>
+                <input asp-for="NctName" class="form-control" />
+                <span asp-validation-for="NctName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctPrice" class="control-label"></label>
+                <input asp-for="NctPrice" class="form-control" />
+                <span asp-validation-for="NctPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctScalePrice" class="control-label"></label>
+                <input asp-for="NctScalePrice" class="form-control" />
+                <span asp-validation-for="NctScalePrice" class="text-danger"></span>
+            </div>
+
+            <partial name="_NctCategorySelect" model="Model" />
+
+            <div class="form-group">
+                <label asp-for="NctImage" class="control-label"></label>
+                <input type="file" name="image" class="form-control" />
+                <span asp-validation-for="NctImage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NctDescription" class="control-label"></label>
+                <textarea asp-for="NctDescription" class="form-control"></textarea>
+                <span asp-validation-for="NctDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" asp-action="Index" />
+                <a asp-action="Index" class="btn btn-secondary">Trở về danh sách</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

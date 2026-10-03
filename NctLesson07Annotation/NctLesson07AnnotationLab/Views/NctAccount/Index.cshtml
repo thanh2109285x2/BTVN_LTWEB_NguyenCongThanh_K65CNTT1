@@ -1,0 +1,83 @@
+@model IEnumerable<NctLesson07AnnotationLab.Models.NctAccount>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NctName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctAvatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctBirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctFacebook)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NctName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctAvatar)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctBirthDay)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctGender)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctFacebook)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

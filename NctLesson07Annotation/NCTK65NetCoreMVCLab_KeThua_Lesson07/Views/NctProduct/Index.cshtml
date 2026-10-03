@@ -1,0 +1,62 @@
+@model IEnumerable<NCTK65NetCoreMVCLab03BaiTapTuLam.Models.NctProduct>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NctName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctScalePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NctDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NctName)
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.NctImage))
+                {
+                    <img src="~/products/@item.NctImage" alt="@item.NctName" style="max-width:120px;" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctScalePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NctDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NctId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NctId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NctId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

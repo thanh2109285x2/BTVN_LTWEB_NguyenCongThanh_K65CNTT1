@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="NCTK65NetCoreMVCLab_KeThua_Lesson07/NCTK65NetCoreMVCLab03BaiTapTuLam.csproj" />
   <Project Path="NctLesson07AnnotationDemo/NctLesson07AnnotationDemo.csproj" />
+  <Project Path="NctLesson07AnnotationLab/NctLesson07AnnotationLab.csproj" Id="e38442c3-79b4-413e-91a4-fa42ef4c8e1f" />
 </Solution>
