@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Admin</title>
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css" />
+    @RenderSection("Css", required: false)
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        @await Component.InvokeAsync("NctNavTop")
+        @await Component.InvokeAsync("NctNavLeft")
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <h1>@ViewData["Title"]</h1>
+                </div>
+            </section>
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+
+        @await Component.InvokeAsync("NctFooter")
+    </div>
+
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
