@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - Admin Dashboard</title>
+
+    <!-- Bootstrap 4 CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
+    <!-- FontAwesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- File CSS tùy chỉnh trong wwwroot/css/styles.css -->
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body class="sb-nav-fixed">
+    <!-- Begin Top nav -->
+    <partial name="_TopNavPartialView" />
+    <!-- End Top nav -->
+
+    <div id="layoutSidenav">
+        <!-- Begin Left menu -->
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" asp-controller="Student" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Danh sách Sinh viên
+                        </a>
+                        <a class="nav-link" asp-controller="Student" asp-action="Create">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                            Thêm Sinh viên
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- End Left menu -->
+        <!-- Begin Right content -->
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4 py-3">
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small text-muted">
+                        <div>Copyright &copy; My Website 2026</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- End Right content -->
+    </div>
+
+    <!-- JS dependencies (jQuery, Popper.js, Bootstrap 4 JS) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- File Script tùy chỉnh trong wwwroot/js/scripts.js -->
+    <script src="~/js/scripts.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

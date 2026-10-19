@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Student list";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+<a href="/Admin/Student/Add" class="btn btn-primary">Create Student thuan html</a>
+
+<a asp-route="student_add" class="btn btn-primary">Create Student su dung tag helper</a>
+
+<table class="table table-striped">
+    <thread>
+        <tr>    
+            <th>Mã</th>
+            <th>Họ tên</th>
+            <th>Ngay sinh</th>
+            <th>Ngành</th>
+            <th>Giới tính</th>
+            <th>Hệ ĐT</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach(var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.DateOfBirth</td>
+            @{
+                    string nganh = "";
+                    switch (s.Branch)
+                    {
+                        case Branch.IT:
+                            nganh = "CNTT";
+                            break;
+                        case Branch.BE:
+                            nganh = "KINH TE";
+                            break;
+                        case Branch.CE:
+                            nganh = "CONG TRINH";
+                            break;
+                        case Branch.EE:
+                            nganh = "DIEN-DIEN TU";
+                            break;
+
+                    }
+                }
+                <TD>@nganh</TD>
+                <td>@(s.Gender == Gender.Male ? "Nam" :"Nu")</td>
+                <td>@(s.IsRegular ? "Chính quy" : "Phi chính quy")</td>
+                <td>@s.Address</td>
+                <td>@s.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        var table = document.querySelector("table");
+        table.onclick = function onTableClick() {
+            table.style = "background-color: yellow;";
+        }
+    </script>
+}
