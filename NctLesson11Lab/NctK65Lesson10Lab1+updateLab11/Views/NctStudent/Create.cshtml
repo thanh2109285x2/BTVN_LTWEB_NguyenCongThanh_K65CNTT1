@@ -1,0 +1,90 @@
+﻿@model Student
+
+<div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-route="student_add" method="post">
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="Name"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="ho va ten"/>
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="Email"></label>
+            <div class="col-sm-10">
+                <input asp-for="Email" class="form-control" placeholder="Email" />
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="Password"></label>
+            <div class="col-sm-10">
+                <input asp-for="Password" class="form-control" placeholder="Password" />
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="Branch"></label>
+            <div class="col-sm-10">
+                <select asp-for="Branch" class="custom-select mr-sm-2"
+                            asp-items="Html.GetEnumSelectList<Branch>()"></select>
+                @*<select asp-for="Gender" asp-items="ViewBag.AllBranches"></select>*@
+            </div>
+        </div>
+
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="IsRegular"></label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="custom-control-input" asp-for="IsRegular"/>
+            </div>
+            <span asp-validation-for="IsRegular" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="IsRegular"></label>
+            <div class="col-sm-10">
+                <input class="form-control" asp-for="DateOfBirth" placeholder="DateOfBirth"/>
+            </div>
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label" asp-for="Gender"></label>
+            <div class="col-sm-10">
+                @foreach (var gender in ViewBag.AllGenders)
+                    {
+                        <label class="radio-inline">
+                        <input type="radio" asp-for="Gender"  value="@gender" id="Gender@(gender)"/> @gender <br />
+                        </label>
+                    }
+            </div>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Address" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea asp-for="Address" class="form-control"
+                          placeholder="Địa chỉ"></textarea>
+            </div>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Diem" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea asp-for="Diem" class="form-control"
+                          placeholder="Điểm"></textarea>
+            </div>
+            <span asp-validation-for="Diem" class="text-danger"></span>
+        </div>
+
+        <div style="margin-top:10px" class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
