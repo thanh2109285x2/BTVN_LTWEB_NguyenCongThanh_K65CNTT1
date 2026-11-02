@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Student>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Mã</th>
+            <th>Họ Tên</th>
+            <th>Ngành</th>
+            <th>Ngày sinh</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.Major?.MajorName</td>
+                <td>@s.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@s.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@s.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<ul class="pagination">
+    @for (int i = 1; i <= ViewBag.pageNum; i++)
+    {
+        <li class="page-item page-btn" data-page="@i" data-mid="@ViewBag.mid" data-keyword="@ViewBag.keyword">
+            <a class="page-link" role="button">@i</a>
+        </li>
+    }
+</ul>

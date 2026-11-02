@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +13,51 @@ public class NctStudentsController : Controller
     }
 
     // GET: STUDENTS
-    public async Task<IActionResult> Index()    
+    private int pageSize = 3;
+
+    public IActionResult Index(int? mid)
     {
-        return View(await _context.Students.ToListAsync());
+        var learners = (IQueryable<Student>)_context.Students
+            .Include(m => m.Major);
+        if (mid != null)
+        {
+            learners = (IQueryable<Student>)_context.Students
+                .Where(l => l.MajorID == mid)
+                .Include(m => m.Major);
+        }
+
+        int pageNum = (int)Math.Ceiling(learners.Count() / (float)pageSize);
+        ViewBag.pageNum = pageNum;
+
+        var result = learners.Take(pageSize).ToList();
+        return View(result);
+    }
+
+    public IActionResult LearnerFilter(int? mid, string? keyword, int pageIndex = 1)
+    {
+        int pageSize = 3;
+        if (pageIndex < 1) pageIndex = 1;
+
+        var query = _context.Students
+            .Include(s => s.Major)
+            .AsQueryable();
+
+        if (mid != null)
+            query = query.Where(s => s.MajorID == mid);
+        if (!string.IsNullOrEmpty(keyword))
+            query = query.Where(s => s.Name!.Contains(keyword));
+
+        int count = query.Count();
+        ViewBag.pageNum = (int)Math.Ceiling(count / (double)pageSize);
+        ViewBag.mid = mid;
+        ViewBag.keyword = keyword;
+
+        var result = query.OrderBy(s => s.Id)
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return PartialView("LearnerTable", result);
     }
 
     // GET: STUDENTS/Details/5
@@ -163,4 +204,14 @@ public class NctStudentsController : Controller
     {
         return _context.Students.Any(e => e.Id == id);
     }
+
+    public IActionResult LearnerByMajorID(int mid)
+    {
+        var learners = _context.Students
+            .Where(l => l.MajorID == mid)
+            .Include(m => m.Major).ToList();
+        return PartialView("LearnerTable", learners);
+    }
+
+
 }
