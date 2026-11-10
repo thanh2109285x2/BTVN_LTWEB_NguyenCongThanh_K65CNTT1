@@ -1,0 +1,15 @@
+﻿@model IEnumerable<NguyenCongThanh_241230844.Models.LoaiHang>
+
+<ul>
+	<li class="active"><a href="index.html">@ViewBag.TenSV</a></li>
+
+	@foreach (var lh in Model)
+	{
+		<li><a href="#" class="loai-link" data-id="@lh.MaLoai">@lh.TenLoai</a></li>
+	}
+	@* <li><a href="about.html">About</a></li>
+	<li><a href="delivery.html">Delivery</a></li>
+	<li><a href="news.html">News</a></li>
+	<li><a href="contact.html">Contact</a></li> *@
+	<div class="clear"></div>
+</ul>
