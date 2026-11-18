@@ -1,0 +1,16 @@
+﻿@model IEnumerable<NguyenCongThanh_241230844_De2026.Models.TheLoai>
+<nav class="navbar">
+    <div class="container">
+        <ul class="menu">
+            <li class="active"><a href="index.html">@ViewBag.TenSV</a></li>
+            @foreach(var tl in Model)
+            {
+                <li class="active"><a href="#" class="timkiem" data-matl="@tl.MaTl">@tl.TenTl</a></li>
+            }
+        </ul>
+        <form class="search-box">
+            <input type="text" placeholder="Tìm sách..." />
+            <button type="button">Tìm</button>
+        </form>
+    </div>
+</nav>
