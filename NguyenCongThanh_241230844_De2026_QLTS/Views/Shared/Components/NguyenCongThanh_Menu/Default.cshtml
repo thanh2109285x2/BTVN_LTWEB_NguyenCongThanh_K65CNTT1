@@ -1,0 +1,17 @@
+﻿@model IEnumerable<NguyenCongThanh_241230844_De2026_QLTS.Models.LoaiTaiSan>
+
+<nav class="navbar">
+    <div class="container">
+        <ul class="menu">
+            <li class="active"><a href="index.html">@ViewBag.TenSV</a></li>
+            @foreach(var l in Model)
+            {
+                <li><a href="#" class="timkiem" data-maloai="@l.MaLoai">@l.TenLoai</a></li>
+            }
+        </ul>
+        <form class="search-box">
+            <input type="text" placeholder="Tìm tài sản..." />
+            <button type="button">Tìm</button>
+        </form>
+    </div>
+</nav>

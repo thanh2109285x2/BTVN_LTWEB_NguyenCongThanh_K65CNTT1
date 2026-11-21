@@ -23,14 +23,21 @@
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/main.js"></script>
     <script>
-        $(document).on("click", ".timkiem", function (e) {
-            e.preventDefault();
-            var matl = $(this).data("matl");
+            $(document).on("click", ".timkiem", function (e) {
+                e.preventDefault();
+                var matl = $(this).data("matl");
 
-            $("#SachMoi").load('@Url.Action("TimSach", "Home")', {matl : matl});
-            $(".timkiem").removeClass("active");
-            $(this).addClass("active");
-        });
+                $.ajax({
+                    url: '@Url.Action("TimSach", "Home")',
+                    data: { matl: matl },
+                    success: function (response) {
+                        $("#SachMoi").html(response);
+                    }
+                });
+
+                $(".timkiem").removeClass("active");
+                $(this).addClass("active");
+            });
     </script>
 
 </body>
