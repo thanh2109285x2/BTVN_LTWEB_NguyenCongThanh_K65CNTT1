@@ -1,0 +1,16 @@
+﻿@model IEnumerable<NguyenCongThanh_241230844_De2026_QLTS_DE2.Models.TaiSan>
+
+<div class="section-head">
+    <h3>@ViewBag.TieuDe</h3>
+    <a href="#">Xem tất cả &rsaquo;</a>
+</div>
+<div class="grid">
+    @foreach (var ts in Model)
+    {
+        <div class="asset-card">
+            <a href="#"><img src="images/@ts.Anh" alt="" /></a>
+            <h2>@ts.TenTs</h2>
+            <div class="asset-foot"><span class="price">@ts.NguyenGia</span><a class="btn-buy" asp-controller="TaiSans" asp-action="Edit" asp-route-MaTs="@ts.MaTs">Sua</a></div>
+        </div>
+    }
+</div>
